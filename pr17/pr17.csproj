@@ -59,6 +59,9 @@
     <Compile Include="pages\PageAuto.xaml.cs">
       <DependentUpon>PageAuto.xaml</DependentUpon>
     </Compile>
+    <Compile Include="pages\PageRez.xaml.cs">
+      <DependentUpon>PageRez.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowCode.xaml.cs">
       <DependentUpon>WindowCode.xaml</DependentUpon>
     </Compile>
@@ -75,6 +78,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="pages\PageAuto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\PageRez.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
