@@ -20,8 +20,8 @@
                 <Button Name="btnAuto" Content="Авторизация" Click="btnAuto_Click"/>
             </StackPanel>
             <StackPanel Width="430" Name="spNewCode" Visibility="Collapsed">
-                <TextBlock FontSize="18" Text="Получить новый код можно будет через 60 сукунд"/>
-                <Button Name="btnNewCode" Content="Сгенерировать" Width="300" Click="btnNewCode_Click"/>
+                <TextBlock Name="tbTimer" FontSize="18" Text="Получить новый код можно будет через 60 секунд"/>
+                <Button Name="btnNewCode" Content="Сгенерировать" Width="300" Click="btnNewCode_Click" Visibility="Collapsed"/>
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace pr17.pages
 {
@@ -20,22 +21,39 @@ namespace pr17.pages
     /// </summary>
     public partial class PageAuto : Page
     {
+        DispatcherTimer dispatcherTimer = new DispatcherTimer();
+        int sec = 60;
         public PageAuto(int index)
         {
             InitializeComponent();
-            switch(index)
+           
+            switch (index)
             {
                 case 0:
                     break;
                 case 1:
                     btnAuto.IsEnabled = false;
                     spNewCode.Visibility = Visibility.Visible;
+                    dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+                    dispatcherTimer.Tick += new EventHandler(DisTimer_Tick);
+                    dispatcherTimer.Start();
                     break;
                 case 2:
                     btnAuto.IsEnabled = false;
                     spNewCode.Visibility = Visibility.Collapsed;
                     break;
             } 
+        }
+        private void DisTimer_Tick(object sender, EventArgs e)
+        {
+            sec--;
+            tbTimer.Text = "Получить новый код можно будет через "+ sec +" секунд";
+            if (sec == 0)
+            {
+                btnNewCode.Visibility = Visibility.Visible;
+                dispatcherTimer.Stop();
+            }
+           
         }
 
         private void btnAuto_Click(object sender, RoutedEventArgs e)
