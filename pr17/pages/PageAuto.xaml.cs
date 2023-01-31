@@ -22,7 +22,7 @@ namespace pr17.pages
     public partial class PageAuto : Page
     {
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
-        int sec = 60;
+        int sec = 10;
         public PageAuto(int index)
         {
             InitializeComponent();
@@ -41,6 +41,8 @@ namespace pr17.pages
                 case 2:
                     btnAuto.IsEnabled = false;
                     spNewCode.Visibility = Visibility.Collapsed;
+                    WindowCaptcha windowCaptcha = new WindowCaptcha();
+                    windowCaptcha.Show();
                     break;
             } 
         }
