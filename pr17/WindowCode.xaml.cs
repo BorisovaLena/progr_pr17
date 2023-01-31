@@ -13,20 +13,27 @@ namespace pr17
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
         string str;
         int index;
+        int sec = 10;
         public WindowCode(string str, int index)
         {
             InitializeComponent();
             this.str = str;
             this.index = index;
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 10);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
             dispatcherTimer.Tick += new EventHandler(DisTimer_Tick);
             dispatcherTimer.Start();
         }
 
         private void DisTimer_Tick(object sender, EventArgs e)
         {
-            ClassFrame.mainFrame.Navigate(new pages.PageAuto(index));
-            Close();
+            sec--;
+            tbTimer.Text = "0:0" + sec;
+            if (sec < 0)
+            {
+                dispatcherTimer.Stop();
+                ClassFrame.mainFrame.Navigate(new pages.PageAuto(index));
+                Close();
+            }
         }
 
         private void tbCode_TextChanged(object sender, TextChangedEventArgs e)
