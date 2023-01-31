@@ -20,29 +20,77 @@ namespace pr17.pages
     /// </summary>
     public partial class PageAuto : Page
     {
-        public PageAuto()
+        public PageAuto(int index)
         {
             InitializeComponent();
+            switch(index)
+            {
+                case 0:
+                    break;
+                case 1:
+                    btnAuto.IsEnabled = false;
+                    spNewCode.Visibility = Visibility.Visible;
+                    break;
+                case 2:
+                    btnAuto.IsEnabled = false;
+                    spNewCode.Visibility = Visibility.Collapsed;
+                    break;
+            } 
         }
 
         private void btnAuto_Click(object sender, RoutedEventArgs e)
         {
-            if (tbLogin.Text == "qwert" && tbPassword.Password == "qwert")
+            if(tbLogin.Text=="" || tbPassword.Password == "")
             {
-                Random random = new Random();
-                int i1 = random.Next(10);
-                int i2 = random.Next(10);
-                int i3 = random.Next(10);
-                int i4 = random.Next(10);
-                int i5 = random.Next(10);
-                string str = i1.ToString() + i2.ToString() + i3.ToString() + i4.ToString() + i5.ToString();
-                MessageBox.Show(str, "Запомните код");
-                WindowCode windowCode = new WindowCode(str);
-                windowCode.ShowDialog();
+                MessageBox.Show("Введите логин и пароль!!!");
             }
             else
             {
-                MessageBox.Show("Логин или пароль введены неправильно!!!");
+                if (tbLogin.Text == "qwert" && tbPassword.Password == "qwert")
+                {
+                    string str = random();
+                    MessageBox.Show(str, "Запомните код");
+                    WindowCode windowCode = new WindowCode(str, 1);
+                    windowCode.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Логин или пароль введены неправильно!!!");
+                }
+            }
+        }
+
+        public string random()
+        {
+            Random random = new Random();
+            int i1 = random.Next(10);
+            int i2 = random.Next(10);
+            int i3 = random.Next(10);
+            int i4 = random.Next(10);
+            int i5 = random.Next(10);
+            string str = i1.ToString() + i2.ToString() + i3.ToString() + i4.ToString() + i5.ToString();
+            return str;
+        }
+
+        private void btnNewCode_Click(object sender, RoutedEventArgs e)
+        {
+            if (tbLogin.Text == "" || tbPassword.Password == "")
+            {
+                MessageBox.Show("Введите логин и пароль!!!");
+            }
+            else
+            {
+                if (tbLogin.Text == "qwert" && tbPassword.Password == "qwert")
+                {
+                    string str = random();
+                    MessageBox.Show(str, "Запомните код");
+                    WindowCode windowCode = new WindowCode(str, 2);
+                    windowCode.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Логин или пароль введены неправильно!!!");
+                }
             }
         }
     }

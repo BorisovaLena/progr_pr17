@@ -24,7 +24,7 @@ namespace pr17
         {
             InitializeComponent();
             ClassFrame.mainFrame = frmMain;
-            ClassFrame.mainFrame.Navigate(new pages.PageAuto());
+            ClassFrame.mainFrame.Navigate(new pages.PageAuto(0));
         }
 
     }

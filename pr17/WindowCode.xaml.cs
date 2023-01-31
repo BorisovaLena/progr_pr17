@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace pr17
@@ -22,10 +12,12 @@ namespace pr17
     {
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
         string str;
-        public WindowCode(string str)
+        int index;
+        public WindowCode(string str, int index)
         {
             InitializeComponent();
             this.str = str;
+            this.index = index;
             dispatcherTimer.Interval = new TimeSpan(0, 0, 10);
             dispatcherTimer.Tick += new EventHandler(DisTimer_Tick);
             dispatcherTimer.Start();
@@ -33,15 +25,28 @@ namespace pr17
 
         private void DisTimer_Tick(object sender, EventArgs e)
         {
+            ClassFrame.mainFrame.Navigate(new pages.PageAuto(index));
             Close();
         }
 
         private void tbCode_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if(tbCode.Text == str)
+            if (tbCode.Text.Length == 5)
             {
-                MessageBox.Show("Успех!!!");
-                Close();
+                if (tbCode.Text == str)
+                {
+                    dispatcherTimer.Stop();
+                    MessageBox.Show("Успех!!!");
+                    ClassFrame.mainFrame.Navigate(new pages.PageRez());
+                    Close();
+                }
+                else
+                {
+                    dispatcherTimer.Stop();
+                    MessageBox.Show("Код введен неверно!!!");
+                    ClassFrame.mainFrame.Navigate(new pages.PageAuto(index));
+                    Close();
+                }
             }
         }
     }

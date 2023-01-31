@@ -9,14 +9,20 @@
       Title="PageAuto">
 
     <Grid>
-        <StackPanel Width="300" VerticalAlignment="Center">
-            <GroupBox Header="Введите логин" FontSize="18">
-                <TextBox Name="tbLogin" Text="qwert"/>
-            </GroupBox>
-            <GroupBox Header="Введите пароль" FontSize="18">
-                <PasswordBox Name="tbPassword" Password="qwert"/>
-            </GroupBox>
-            <Button Name="btnAuto" Content="Авторизация" Click="btnAuto_Click"/>
+        <StackPanel VerticalAlignment="Center">
+            <StackPanel Width="300">
+                <GroupBox Header="Введите логин" FontSize="18">
+                    <TextBox Name="tbLogin" Text="qwert"/>
+                </GroupBox>
+                <GroupBox Header="Введите пароль" FontSize="18">
+                    <PasswordBox Name="tbPassword" Password="qwert"/>
+                </GroupBox>
+                <Button Name="btnAuto" Content="Авторизация" Click="btnAuto_Click"/>
+            </StackPanel>
+            <StackPanel Width="430" Name="spNewCode" Visibility="Collapsed">
+                <TextBlock FontSize="18" Text="Получить новый код можно будет через 60 сукунд"/>
+                <Button Name="btnNewCode" Content="Сгенерировать" Width="300" Click="btnNewCode_Click"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

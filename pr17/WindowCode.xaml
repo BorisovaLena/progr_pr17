@@ -8,6 +8,7 @@
         Title="" Height="120" Width="300">
     <Grid>
         <StackPanel>
+            <TextBlock Name="tbTimer" HorizontalAlignment="Right"/>
             <GroupBox Header="Введите код" Width="200" FontSize="18">
                 <TextBox Name="tbCode" MaxLength="5" TextChanged="tbCode_TextChanged"/>
             </GroupBox>
