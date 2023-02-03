@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="WindowCaptcha" Height="450" Width="800">
     <Grid>
+        <StackPanel>
+            <Canvas Name="can" Width="200" Height="100" Background="AliceBlue"></Canvas>
+        <StackPanel>
+            <GroupBox Header="kkcf">
+                <TextBox Name="tbText"/>
+            </GroupBox>
+        </StackPanel>
+        </StackPanel>
+        
         
     </Grid>
 </Window>
