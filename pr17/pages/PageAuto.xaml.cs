@@ -41,8 +41,14 @@ namespace pr17.pages
                 case 2:
                     btnAuto.IsEnabled = false;
                     spNewCode.Visibility = Visibility.Collapsed;
-                    WindowCaptcha windowCaptcha = new WindowCaptcha();
+                    WindowCaptcha windowCaptcha = new WindowCaptcha(1);
                     windowCaptcha.Show();
+                    break;
+                case 3:
+                    btnAuto.IsEnabled = false;
+                    spNewCode.Visibility = Visibility.Collapsed;
+                    WindowCaptcha windowCaptcha2 = new WindowCaptcha(2);
+                    windowCaptcha2.Show();
                     break;
             } 
         }

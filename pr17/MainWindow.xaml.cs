@@ -25,8 +25,6 @@ namespace pr17
             InitializeComponent();
             ClassFrame.mainFrame = frmMain;
             ClassFrame.mainFrame.Navigate(new pages.PageAuto(0));
-            WindowCaptcha windowCaptcha = new WindowCaptcha();
-            windowCaptcha.Show();
         }
 
     }

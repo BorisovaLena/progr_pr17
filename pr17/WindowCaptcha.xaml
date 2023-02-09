@@ -5,17 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pr17"
         mc:Ignorable="d"
-        Title="WindowCaptcha" Height="450" Width="800">
+        Title="WindowCaptcha" Height="200" Width="300">
     <Grid>
         <StackPanel>
             <Canvas Name="can" Width="200" Height="100" Background="AliceBlue"></Canvas>
-        <StackPanel>
-            <GroupBox Header="kkcf">
-                <TextBox Name="tbText"/>
-            </GroupBox>
+            <StackPanel>
+                <GroupBox Header="Введите текст с картинки">
+                    <TextBox Name="tbText"  TextChanged="tbText_TextChanged"/>
+                </GroupBox>
+            </StackPanel>
         </StackPanel>
-        </StackPanel>
-        
-        
     </Grid>
 </Window>
