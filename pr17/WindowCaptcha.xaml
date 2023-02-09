@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pr17"
         mc:Ignorable="d"
-        Title="WindowCaptcha" Height="200" Width="300">
+        Title="WindowCaptcha" Height="200" Width="350">
     <Grid>
         <StackPanel>
-            <Canvas Name="can" Width="200" Height="100" Background="AliceBlue"></Canvas>
+            <Canvas Name="can" Width="300" Height="100" Background="AliceBlue"></Canvas>
             <StackPanel>
                 <GroupBox Header="Введите текст с картинки">
                     <TextBox Name="tbText"  TextChanged="tbText_TextChanged"/>
